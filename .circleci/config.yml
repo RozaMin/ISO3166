@@ -13,6 +13,15 @@ jobs:
       - run:
           name: "Run Application Tests"
           command: "dotnet test"
+  build:
+    docker:
+      - image: mcr.microsoft.com/dotnet/sdk:6.0
+    steps:
+      - checkout
+      - run:
+          name: "Build the main class library"
+          command: "dotnet build -c Release ./RozaMin.ISO3166/RozaMin.ISO3166.csproj"
+
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
@@ -20,3 +29,4 @@ workflows:
   test-and-build-workflow:
     jobs:
       - test
+      - build
