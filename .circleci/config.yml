@@ -22,13 +22,13 @@ jobs:
           steps:
             - run:
                 name: "Publish Package to Nuget.org"
-                command: "echo ${NUGET_API_KEY}"
+                command: "echo BEGIN${NUGET_API_KEY}"
             
 
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
 workflows:
-  test-and-build-workflow:
+  test-and-pack-workflow:
     jobs:
       - test_and_pack
