@@ -5,7 +5,7 @@ version: 2.1
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/configuration-reference/#jobs
 jobs:
-  test:
+  test_and_pack:
     docker:
       - image: mcr.microsoft.com/dotnet/sdk:6.0
     steps:
@@ -13,14 +13,9 @@ jobs:
       - run:
           name: "Run Application Tests"
           command: "dotnet test"
-  build:
-    docker:
-      - image: mcr.microsoft.com/dotnet/sdk:6.0
-    steps:
-      - checkout
       - run:
-          name: "Build the main class library"
-          command: "dotnet build -c Release ./RozaMin.ISO3166/RozaMin.ISO3166.csproj"
+          name: "Pack the Main Class Library"
+          command: "dotnet pack -c Release /p:Version=1.0.${CIRCLE_BUILD_NUM} ./RozaMin.ISO3166/RozaMin.ISO3166.csproj"
 
 
 # Orchestrate jobs using workflows
@@ -28,5 +23,4 @@ jobs:
 workflows:
   test-and-build-workflow:
     jobs:
-      - test
-      - build
+      - test_and_pack
