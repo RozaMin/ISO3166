@@ -31,4 +31,6 @@ jobs:
 workflows:
   test-and-pack-workflow:
     jobs:
-      - test_and_pack
+      - test_and_pack:
+          context:
+            - MainContext
