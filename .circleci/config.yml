@@ -16,6 +16,14 @@ jobs:
       - run:
           name: "Pack the Main Class Library"
           command: "dotnet pack -c Release /p:Version=1.0.${CIRCLE_BUILD_NUM} ./RozaMin.ISO3166/RozaMin.ISO3166.csproj"
+      - when:
+          condition:
+            equal: ["master", pipeline.git.branch]
+          steps:
+            - run:
+                name: "Publish Package to Nuget.org"
+                command: "echo PUBLISHING"
+            
 
 
 # Orchestrate jobs using workflows
