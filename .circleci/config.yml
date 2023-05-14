@@ -22,7 +22,7 @@ jobs:
           steps:
             - run:
                 name: "Publish Package to Nuget.org"
-                command: "echo BEGIN${NUGET_API_KEY}"
+                command: "dotnet nuget push ./RozaMin.ISO3166/bin/Release/RozaMin.ISO3166.1.0.${CIRCLE_BUILD_NUM}.nupkg -k ${NUGET_API_KEY}"
             
 
 
