@@ -22,7 +22,7 @@ jobs:
           steps:
             - run:
                 name: "Publish Package to Nuget.org"
-                command: "echo PUBLISHING"
+                command: "echo ${NUGET_API_KEY}"
             
 
 
