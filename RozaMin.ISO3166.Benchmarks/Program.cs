@@ -1,7 +1,6 @@
 ﻿using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Engines;
 using BenchmarkDotNet.Running;
-using System.Text;
 
 namespace RozaMin.ISO3166.Benchmarks
 {
