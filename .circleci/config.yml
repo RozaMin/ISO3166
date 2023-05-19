@@ -8,7 +8,7 @@ jobs:
     docker:
       - image: mcr.microsoft.com/dotnet/sdk:6.0
     environment:
-      DOTNET_SKIP_FIRST_TIME_EXPERIENCE: True
+      DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
       NUGET_XMLDOC_MODE: skip
     steps:
       - checkout
