@@ -15,14 +15,7 @@ jobs:
       - run: "dotnet publish -c Release ./RozaMin.ISO3166.Benchmarks/RozaMin.ISO3166.Benchmarks.csproj"
       - run: "dotnet ./RozaMin.ISO3166.Benchmarks/bin/Release/net6.0/RozaMin.ISO3166.Benchmarks.dll"
       - store_artifacts:
-          path: ./RozaMin.ISO3166.Benchmarks/bin/Release/net6.0/BenchmarkDotNet.Artifacts
-      - run: ls -al ./RozaMin.ISO3166.Benchmarks/bin/Release/net6.0
-      - run: ls -al ./RozaMin.ISO3166.Benchmarks/bin/Release
-      - run: ls -al ./RozaMin.ISO3166.Benchmarks/bin
-      - run: ls -al ./RozaMin.ISO3166.Benchmarks
-      - run: ls -al ./
-      - run: ls -al /
-      - run: ls -al /.nuget
+          path: ./BenchmarkDotNet.Artifacts
       - when:
           condition:
             equal: ["master", << pipeline.git.branch >>]
