@@ -17,6 +17,9 @@ jobs:
           command: "dotnet run -c Release --project ./RozaMin.ISO3166.Benchmarks/RozaMin.ISO3166.Benchmarks.csproj"
       - store_artifacts:
           path: ./RozaMin.ISO3166.Benchmarks/bin/Release/net6.0/BenchmarkDotNet.Artifacts
+      - run: ls -al ./RozaMin.ISO3166.Benchmarks/bin/Release/net6.0
+      - run: ls -al ./RozaMin.ISO3166.Benchmarks/bin/Release
+      - run: ls -al ./RozaMin.ISO3166.Benchmarks/bin
       - when:
           condition:
             equal: ["master", << pipeline.git.branch >>]
