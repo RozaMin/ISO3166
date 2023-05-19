@@ -13,6 +13,9 @@ jobs:
           name: "Pack the Main Class Library"
           command: "dotnet pack -c Release /p:Version=1.0.${CIRCLE_BUILD_NUM} ./RozaMin.ISO3166/RozaMin.ISO3166.csproj"
       - run:
+          name: "Listing Directory"
+          command: "ls -al"
+      - run:
           name: "Benchmarking"
           command: "dotnet run -c Release ./RozaMin.ISO3166.Benchmarks/RozaMin.ISO3166.Benchmarks.csproj"
       - store_artifacts:
