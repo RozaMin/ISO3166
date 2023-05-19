@@ -8,15 +8,15 @@ jobs:
     docker:
       - image: mcr.microsoft.com/dotnet/sdk:6.0
     environment:
-      DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+      DOTNET_SKIP_FIRST_TIME_EXPERIENCE: True
       NUGET_XMLDOC_MODE: skip
     steps:
       - checkout
-      - nuget_cache/nuget_restore_cache:
+      - nuget_cache/nuget_restore_cache
       - run:
           name: "Restore Packages"
           command: "dotnet restore"
-      - nuget_cache/nuget_save_cache:
+      - nuget_cache/nuget_save_cache
       - run:
           name: "Run Application Tests"
           command: "dotnet test"
